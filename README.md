@@ -1,4 +1,4 @@
-<center># learning terraform </center>
+# learning terraform 
 
 none of this will work without 
 <b>terraform.tfvars</b>             << file contents should have the following.

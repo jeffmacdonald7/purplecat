@@ -1,3 +1,2 @@
 # project purplecat
- 
-![purplecat](https://github.com/jeffmacdonald7/purplecat/assets/38753410/496f6d68-cc5d-45fb-8c33-89c7d08a30ad | width=100)
+ ![image](https://github.com/jeffmacdonald7/purplecat/assets/38753410/57a4cf10-0316-4095-bda9-93055b35afc6)

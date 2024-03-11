@@ -8,8 +8,7 @@ def check_files():
   try:    
     with open("needed_files.txt", "r") as file:
 
-        needed_files = [line.strip() for line in file.readlines()]
-        print (" checking for " .join(needed_files))
+        needed_files = [line.strip() for line in file.readlines() print (" checking " + line )]
 
   except FileNotFoundError:
         print("Error: The 'needed_files.txt' file is missing.")

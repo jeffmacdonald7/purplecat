@@ -7,9 +7,10 @@ def check_files():
     # Read the list of needed files from the file
   try:    
     with open("needed_files.txt", "r") as file:
-        needed_files = [line.strip() for line in file.readlines()]
         #debug
-        print("checking for " + needed_files )
+        print("checking for " + file )
+        needed_files = [line.strip() for line in file.readlines()]
+
   except FileNotFoundError:
         print("Error: The 'needed_files.txt' file is missing.")
         return

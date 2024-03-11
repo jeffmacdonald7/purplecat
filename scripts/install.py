@@ -8,6 +8,8 @@ def check_files():
   try:    
     with open("needed_files.txt", "r") as file:
         needed_files = [line.strip() for line in file.readlines()]
+        #debug
+        print("checking for " + needed_files )
   except FileNotFoundError:
         print("Error: The 'needed_files.txt' file is missing.")
         return

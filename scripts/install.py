@@ -12,13 +12,13 @@ def check_files():
         return
 
     # Check if the needed files exist
-    missing_files = []
-    for file in needed_files:
+missing_files = []
+for file in needed_files:
         if not os.path.isfile(file):
             missing_files.append(file)
 
     # Prompt the user to install missing files
-    if missing_files:
+if missing_files:
         print("The following files are missing:")
         for file in missing_files:
             print(file)
@@ -30,7 +30,7 @@ def check_files():
             pass
         else:
             print("Please install the missing files manually.")
-    else:
+else:
         print("All needed files are present.")
 
 if __name__ == "__main__":

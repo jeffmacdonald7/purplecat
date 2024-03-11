@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import os
 
+needed_files=""
 
 def check_files():
     # Read the list of needed files from the file

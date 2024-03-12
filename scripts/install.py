@@ -2,8 +2,9 @@
 import os
 
 config_file="/etc/purplecat/purplecat.conf"
+config_path="/etc/purplecat/"
 
-def check_files():
+def check_for_config_file():
     # Read the list of needed files pwdfrom the file
   try:    
     with open(config_file, "r") as file:
@@ -13,8 +14,12 @@ def check_files():
         print("Error: " + config_file + " not found "  )
         return
   except PermissionError:
-        print ("cant open " + config_file + " for reading ")
+        print ("Error: cant open " + config_file + " for reading ")
+
+def create_new_config_file():
+   print ("here ")
+
 
 if __name__ == "__main__":
-    check_files()
+    check_for_config_file()
 

@@ -2,7 +2,7 @@
 import os, sys
 import subprocess
 
-version="00001"
+version="00002"
 proc_name="purplecat install.py"
 config_file="/etc/purplecat/purplecat.conf"
 config_path="/etc/purplecat/"
@@ -38,6 +38,23 @@ def check_root_user():
         print("Error: This script must be run as root. Exiting...")
         sys.exit(1)
 
+def check_sysstat_present():
+   if not os.path.exists("/var/log/sysstat"):
+     try:
+      subprocess.run(["apt-get", "install", "sysstat"], check=True)
+      print("sysstat installed successfully.")
+     except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+
+
+def check_nginx_present():
+   if not os.path.exists("/etc/nginx/nginx.conf"):
+     try:
+      subprocess.run(["apt-get", "install", "nginx"], check=True)
+      print("sysstat installed successfully.")
+     except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+
 def generate_new_uuid():
   # Run the uuidgen command and capture its output
    print ("generate_new_uuid called ")
@@ -50,6 +67,7 @@ def generate_new_uuid():
 if __name__ == "__main__":
     check_root_user()
     check_for_config_file()
+    check_sysstat_present()
     
 
 

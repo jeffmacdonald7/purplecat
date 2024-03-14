@@ -14,20 +14,13 @@ uuid=""
 
 def check_for_config_file():
     # Read the list of needed files pwdfrom the file
-  try:    
-    with open(config_file, "r") as file:
-      for line in file.readlines():
-        print("")
-        # WORK on reading in previous config
-  except FileNotFoundError:
-        print("Info: no " + config_file + " assuming new install ")
-        create_new_config_file()
-  except PermissionError:
-        print ("Error: cant open " + config_file + " for reading ")
+  
+  if not os.path.isfile(config_file):
+     create_new_config_file()
+  
 
 def create_new_config_file():
-
-  
+   new_install_defaults=generate_new_uuid()
    if not os.path.exists(config_path):
      try:
        os.mkdir(config_path)
@@ -35,7 +28,7 @@ def create_new_config_file():
         print ("Error: cant create " + config_path)
         sys.exit(1)
    if not os.path.exists(config_file):
-     with open(config_file, 'w') as cf:
+     with open(config_file, 'x') as cf:
       # Write the variables to the 
       print ("writing config file new ")
       cf.write(new_install_defaults)
@@ -47,8 +40,10 @@ def check_root_user():
 
 def generate_new_uuid():
   # Run the uuidgen command and capture its output
+   print ("generate_new_uuid called ")
    uuid_proc = subprocess.run(['uuidgen'], capture_output=True, text=True)
    uuid=uuid_proc.stdout.strip()
+   return uuid
 
 
 

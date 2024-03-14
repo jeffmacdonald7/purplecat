@@ -43,7 +43,7 @@ def generate_new_uuid():
    print ("generate_new_uuid called ")
    uuid_proc = subprocess.run(['uuidgen'], capture_output=True, text=True)
    uuid=uuid_proc.stdout.strip()
-   return uuid
+   return new_install_defaults + "machineid="+ uuid + "\n"
 
 
 
